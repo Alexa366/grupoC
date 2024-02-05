@@ -3,7 +3,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import plotly.express as px
-from buscador import buscador
+from proyecto1.buscador import buscador
 
 def proyecto():
 
