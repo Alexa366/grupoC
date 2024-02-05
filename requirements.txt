@@ -1,0 +1,16 @@
+numpy
+pandas
+streamlit
+seaborn
+requests
+matplotlib
+pillow
+plotly
+scikit-learn
+streamlit_option_menu
+opencv-python
+deepface
+pprintpp
+streamlit-folium
+folium
+
