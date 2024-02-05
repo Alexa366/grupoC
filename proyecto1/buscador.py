@@ -6,10 +6,10 @@ import requests
 import json
 
 
-def tiendas():
+def buscador():
     st.header('BUSCADOR DE TIENDAS POR CATEGORIA')
 
-    df = pd.read_csv('datos_tiendas.csv')
+    df = pd.read_csv('proyecto1/datos_tiendas.csv')
 
     lista_categorias = df['Categorias'].value_counts().head(10).reset_index()['Categorias'].tolist()
 
@@ -18,7 +18,7 @@ def tiendas():
 
     tiendas = df[df['Categorias'] == categorias].head(10)['Tiendas'].head(5).tolist()
 
-    provincias_geo = "provincias-espanolas .geojson"
+    provincias_geo = "proyecto1/provincias-espanolas .geojson"
     with open(provincias_geo) as json_file:
         info = json.load(json_file)
 
@@ -80,4 +80,4 @@ def tiendas():
 
 
 if __name__ == "__main__":
-    tiendas()
+    buscador()

@@ -3,12 +3,13 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import plotly.express as px
+from proyecto1.buscador import buscador
 
 def proyecto():
 
     st.title("ESTUDIO DE PRODUCTOS DE ALIMENTACION")
 
-    tab1, tab2 = st.tabs(["TIENDAS SEGUN ECOSCORE", "MARCAS BLANCAS"])
+    tab1, tab2, tab3 = st.tabs(["TIENDAS SEGUN ECOSCORE", "MARCAS BLANCAS", "LOCALIZADOR DE TIENDAS"])
 
     tab1.write("Revisar tiendas")
 
@@ -57,6 +58,10 @@ def proyecto():
     fig = sns.pairplot(df_grafico, height=2, hue='Marcas')
     plt.suptitle(f'Comparación de {marca1} y {marca2} en la categoría {categorias}', y=1.02)
     tab2.pyplot(fig.fig)
+
+    tab3.write("BUSCADOR DE TIENDAS")
+    buscador()
+
 
 
 
