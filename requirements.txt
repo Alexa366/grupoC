@@ -13,4 +13,6 @@ deepface
 pprintpp
 streamlit-folium
 folium
+streamlit_lottie
+streamlit_extras
 
