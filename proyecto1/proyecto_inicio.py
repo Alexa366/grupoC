@@ -49,7 +49,7 @@ def proyecto():
                  x=marca,
                  y=datos)
 
-    tab2.plotly_chart(figure_or_data=fig))
+    tab2.plotly_chart(figure_or_data=fig)
 
 
     tab3.write("BUSCADOR DE TIENDAS")
