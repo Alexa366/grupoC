@@ -107,13 +107,13 @@ def proyecto2en():
             for k, v in diccionario['CLASS'].items():
                 if v == y_pred[0]:
                     resultado = k
+            chart_data = pd.DataFrame(modelo_filtrado(prediccion)[2:], index=["ACCURACY", "PRECISSION", "RECALL"],
+                                      columns=["METRICS"])
+            col3.dataframe(chart_data)
             if resultado == 'edible':
                 st.write(f'{resultado}:mushroom:')
             else:
                 st.write(f'{resultado}:skull:')
-            col3.write(modelo_filtrado_en(prediccion)[2])
-            col3.write(modelo_filtrado_en(prediccion)[3])
-            col3.write(modelo_filtrado_en(prediccion)[4])
 
 if __name__ == "__main__":
     proyecto2en()

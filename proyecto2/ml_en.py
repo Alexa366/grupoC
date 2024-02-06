@@ -32,7 +32,7 @@ def modelo_filtrado_en(dato):
     pre = precision_score(y_test, yhat)
     rec = recall_score(y_test, yhat)
 
-    data_filtrado = [model, X_scaler, f"Accuracy {round(acc * 100, 2)}%", f"Precision {round(pre * 100, 2)}%",
-                     f"Recall {round(rec * 100, 2)}%"]
+    data_filtrado = [model, X_scaler, f"{round(acc * 100, 2)}", f"{round(pre * 100, 2)}",
+                     f"{round(rec * 100, 2)}"]
 
     return data_filtrado
