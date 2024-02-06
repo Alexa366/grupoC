@@ -106,14 +106,15 @@ def proyecto2es():
         for k, v in diccionario['class'].items():
             if v == y_pred[0]:
                 resultado = k
-        chart_data = pd.DataFrame(modelo_filtrado(prediccion)[2:], index=["ACCURACY", "PRECISSION", "RECALL"],
-                                  columns=["METRICAS"])
-        col3.dataframe(chart_data)
 
         if resultado == 'comestible':
             col3.write(f'{resultado}:mushroom:')
         else:
             col3.write(f'{resultado}:skull:')
+
+        chart_data = pd.DataFrame(modelo_filtrado(prediccion)[2:], index=["ACCURACY", "PRECISSION", "RECALL"],
+                                  columns=["METRICAS"])
+        col3.dataframe(chart_data)
 
 if __name__ == "__main__":
     proyecto2es()
