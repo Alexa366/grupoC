@@ -9,9 +9,9 @@ def proyecto():
 
     st.title("ESTUDIO DE PRODUCTOS DE ALIMENTACION")
 
-    tab1, tab2, tab3 = st.tabs(["TIENDAS SEGUN ECOSCORE", "MARCAS BLANCAS", "LOCALIZADOR DE TIENDAS"])
+    tab1, tab2, tab3 = st.tabs(["TIENDAS SEGUN ECOSCORE", "COMPARACION PRODUCTOS", "LOCALIZADOR DE TIENDAS"])
 
-    tab1.write("Revisar tiendas")
+    tab1.write("REVISION ECOSCORE")
 
     df = pd.read_pickle('proyecto1/datos_spain.pkl')
 
@@ -37,32 +37,25 @@ def proyecto():
 
     tab1.plotly_chart(figure_or_data=fig)
 
-    tab2.write("Marcas Blancas")
+    tab2.write("COMPARACION PRODUCTOS")
 
-    tab2.header('COMPARACION MARCAS vs MARCAS BLANCAS')
+    marcas = df['Marcas'].dropna().unique()
+    marca = tab2.multiselect("MARCAS", marcas, ['Nocilla', 'Nutella'])
 
-    lista_categorias = df['Categorias'].value_counts().head(10).reset_index()['Categorias'].tolist()
+    datos = tab2.radio("Elige", ["Grasas", "kcal", "Grasas saturadas", "Azucares"], horizontal=True)
 
-    categorias = tab2.selectbox(label="Categorias",
-                              options=lista_categorias)
+    df_filtrado_marcas = df[df["Marcas"].isin(marca)]
+    agrupado = df_filtrado_marcas.groupby("Marcas")[["Grasas", "kcal", "Grasas saturadas", "Azucares"]].mean()
 
-    lista_marcas = df[df['Categorias'] == categorias]['Marcas'].value_counts().head(5).index.tolist()
-    marca1 = tab2.selectbox(label="Marca", options=lista_marcas)
+    fig = px.bar(data_frame=agrupado[datos],
+                 x=marca,
+                 y=datos)
 
-    lista_marcas.remove(marca1)
+    tab2.plotly_chart(figure_or_data=fig))
 
-    marca2 = tab2.selectbox(label="Marca", options=lista_marcas)
-
-    df_grafico = df[(df['Marcas'].isin([marca1, marca2])) & (df['Categorias'] == categorias)][
-        ['Carbohidratos', 'kcal', 'Grasas', 'Azucares', 'Marcas', 'Categorias']].dropna()
-    fig = sns.pairplot(df_grafico, height=2, hue='Marcas')
-    plt.suptitle(f'Comparación de {marca1} y {marca2} en la categoría {categorias}', y=1.02)
-    tab2.pyplot(fig.fig)
-
-    tab3.write("BUSCADOR DE TIENDAS")
-    buscador()
-
-
+    with tab3:
+        st.write("BUSCADOR DE TIENDAS")
+        buscador()
 
 
 if __name__ == "__main__":
