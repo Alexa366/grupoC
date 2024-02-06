@@ -10,6 +10,7 @@ def main():
         page_title="PROYECTOS REALIZADOS EN DSB05RT",
         page_icon=":abacus", )
 
+
     st.subheader(body="Liuva :female_superhero:, Alex :female_superhero: y David :male_zombie:")
 
     st.write("Presentan los proyectos realizados durante este Bootcamp.")
