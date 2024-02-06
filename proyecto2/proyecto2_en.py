@@ -90,30 +90,33 @@ def proyecto2en():
     with open('proyecto2/dicc_en.pkl', 'rb') as file:
         diccionario = pickle.load(file)
 
-    col3.header('PREDICTION')
-    if prediccion == ():
-        st.write("Choose an option"))
-    else:
-        test = []
-        for datos, valor in zip(prediccion, seleccion):
-            test.append(diccionario[datos][valor])
-
-        test = np.array([test])
-
-        test = modelo_filtrado(prediccion)[1].transform(test)
-        model = modelo_filtrado(prediccion)[0]
-        y_pred = model.predict(test)
-        for k, v in diccionario['class'].items():
-            if v == y_pred[0]:
-                resultado = k
-        chart_data = pd.DataFrame(modelo_filtrado(prediccion)[2:], index=["ACCURACY", "PRECISSION", "RECALL"], columns = ["METRICS"])
-
-        col3.dataframe(chart_data)
-
-        if resultado == 'edible':
-            st.write(f'{resultado}:mushroom:')
+    with col3:
+        st.header('PREDICTION')
+        if prediccion == ():
+            st.write ("Choose an option")
         else:
-            st.write(f'{resultado}:skull:')
+            test = []
+            for datos, valor in zip(prediccion, seleccion):
+                test.append(diccionario[datos][valor])
+
+            test = np.array([test])
+
+            test = modelo_filtrado_en(prediccion)[1].transform(test)
+            model = modelo_filtrado_en(prediccion)[0]
+            y_pred = model.predict(test)
+            for k, v in diccionario['CLASS'].items():
+                if v == y_pred[0]:
+                    resultado = k
+            chart_data = pd.DataFrame(modelo_filtrado(prediccion)[2:], index=["ACCURACY", "PRECISSION", "RECALL"],
+                                      columns=["METRICAS"])
+            col3.dataframe(chart_data)
+            if resultado == 'edible':
+                st.write(f'{resultado}:mushroom:')
+            else:
+                st.write(f'{resultado}:skull:')
+            col3.write(modelo_filtrado_en(prediccion)[2])
+            col3.write(modelo_filtrado_en(prediccion)[3])
+            col3.write(modelo_filtrado_en(prediccion)[4])
 
 if __name__ == "__main__":
     proyecto2en()
