@@ -55,7 +55,7 @@ def proyecto():
 
 
     tab3.write("BUSCADOR DE TIENDAS")
-    buscador()
+
 
 
 if __name__ == "__main__":
