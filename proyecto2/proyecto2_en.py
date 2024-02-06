@@ -90,30 +90,30 @@ def proyecto2en():
     with open('proyecto2/dicc_en.pkl', 'rb') as file:
         diccionario = pickle.load(file)
 
-    with col3:
-        st.header('PREDICTION')
-        if prediccion == ():
-            st.write ("Choose an option")
+    col3.header('PREDICTION')
+    if prediccion == ():
+        st.write("Choose an option"))
+    else:
+        test = []
+        for datos, valor in zip(prediccion, seleccion):
+            test.append(diccionario[datos][valor])
+
+        test = np.array([test])
+
+        test = modelo_filtrado(prediccion)[1].transform(test)
+        model = modelo_filtrado(prediccion)[0]
+        y_pred = model.predict(test)
+        for k, v in diccionario['class'].items():
+            if v == y_pred[0]:
+                resultado = k
+        chart_data = pd.DataFrame(modelo_filtrado(prediccion)[2:], index=["ACCURACY", "PRECISSION", "RECALL"], columns = ["METRICS"])
+
+        col3.dataframe(chart_data)
+
+        if resultado == 'edible':
+            st.write(f'{resultado}:mushroom:')
         else:
-            test = []
-            for datos, valor in zip(prediccion, seleccion):
-                test.append(diccionario[datos][valor])
-
-            test = np.array([test])
-
-            test = modelo_filtrado_en(prediccion)[1].transform(test)
-            model = modelo_filtrado_en(prediccion)[0]
-            y_pred = model.predict(test)
-            for k, v in diccionario['CLASS'].items():
-                if v == y_pred[0]:
-                    resultado = k
-            chart_data = pd.DataFrame(modelo_filtrado(prediccion)[2:], index=["ACCURACY", "PRECISSION", "RECALL"],
-                                      columns=["METRICS"])
-            col3.dataframe(chart_data)
-            if resultado == 'edible':
-                st.write(f'{resultado}:mushroom:')
-            else:
-                st.write(f'{resultado}:skull:')
+            st.write(f'{resultado}:skull:')
 
 if __name__ == "__main__":
     proyecto2en()
