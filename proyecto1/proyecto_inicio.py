@@ -53,9 +53,9 @@ def proyecto():
 
     tab2.plotly_chart(figure_or_data=fig))
 
-    with tab3:
-        st.write("BUSCADOR DE TIENDAS")
-        buscador()
+
+    tab3.write("BUSCADOR DE TIENDAS")
+    buscador()
 
 
 if __name__ == "__main__":
