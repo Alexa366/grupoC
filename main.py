@@ -3,6 +3,7 @@ from streamlit_option_menu import option_menu
 from proyecto1.proyecto_inicio import proyecto
 from proyecto2.proyecto2_es import proyecto2es
 from proyecto2.proyecto2_en import proyecto2en
+from home import home
 
 
 def main():
@@ -15,10 +16,14 @@ def main():
 
     seleccion = option_menu(
         menu_title=None,
-        options=["PROYECTO 1 - ALIMENTOS", "PROYECTO 2 - SETAS", "PROYECTO 3 - EMOCIONES"],
-        icons=["1-square", "2-square-fill", "3-square"],
+        options=["HOME", "PROYECTO 1 - ALIMENTOS", "PROYECTO 2 - SETAS", "PROYECTO 3 - EMOCIONES"],
+        icons=["house","1-square", "2-square-fill", "3-square"],
         default_index=0,
         orientation="horizontal", )
+
+    if seleccion == "HOME":
+        home()
+        pass
 
     if seleccion == "BOOTCAMP DSB05RT":
         inicio()
