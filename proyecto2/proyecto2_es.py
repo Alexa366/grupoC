@@ -108,13 +108,13 @@ def proyecto2es():
                 resultado = k
 
         if resultado == 'comestible':
-            col3.write(f'{resultado}:mushroom:')
+            col3.metric("PREDICTION", f'{resultado}'.upper())
         else:
-            col3.write(f'{resultado}:skull:')
+            col3.metric("PREDICTION", f'{resultado}'.upper())
 
-        chart_data = pd.DataFrame(modelo_filtrado(prediccion)[2:], index=["ACCURACY", "PRECISSION", "RECALL"],
-                                  columns=["METRICAS"])
-        col3.dataframe(chart_data)
+        col3.metric("ACCURACY", modelo_filtrado(prediccion)[2])
+        col3.metric("PRECISSION", modelo_filtrado(prediccion)[3])
+        col3.metric("RECALL", modelo_filtrado(prediccion)[4])
 
 if __name__ == "__main__":
     proyecto2es()
