@@ -48,8 +48,14 @@ def proyecto():
 
     tab1.plotly_chart(figure_or_data=fig)
 
-    tab2.write("COMPARACION PRODUCTOS")
+    # COMPARACION DE PRODUCTOS SEGUN VALORES ENERGETICOS
+    tab2.subheader("COMPARACION DE PRODUCTOS SEGUN VALORES ENERGETICOS")
 
+    tab2.markdown(
+        '<div style="text-align: justify;">Creamos una comparativa gráfica de productos según sus valores enérgeticos </p><p> La idea nos surgió de una charla grupal con Bárbara, donde nos pedía elegir entre Pepsi y Coca-Cola, o Nocilla y Nutella. En aquella ocasión era por gustos, no por salud 😉</p></div>',
+        unsafe_allow_html=True)
+
+    # Marcas
     marcas = df['Marcas'].dropna().unique()
     marca = tab2.multiselect("MARCAS", marcas, ['Nocilla', 'Nutella'])
 
@@ -57,12 +63,9 @@ def proyecto():
 
     df_filtrado_marcas = df[df["Marcas"].isin(marca)]
     agrupado = df_filtrado_marcas.groupby("Marcas")[["Grasas", "kcal", "Grasas saturadas", "Azucares"]].mean()
-
-    fig = px.bar(data_frame=agrupado[datos],
-                 x=marca,
-                 y=datos)
-
-    tab2.plotly_chart(figure_or_data=fig)
+    tab2.dataframe(agrupado[datos], use_container_width=True)
+    tab2.bar_chart(agrupado[datos], use_container_width=True,
+                   color=(np.random.randint(0, 255), np.random.randint(0, 255), np.random.randint(0, 255)))
 
     tab3.subheader("RELACION NUMERO DE ADITIVOS CON EL GRADO DE NUTRICION")
     tab3.markdown(
