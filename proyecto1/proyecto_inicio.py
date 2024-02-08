@@ -5,15 +5,28 @@ from proyecto1.buscador import buscador
 
 def proyecto():
 
-    st.title("ESTUDIO DE PRODUCTOS DE ALIMENTACION")
-
-    tab1, tab2, tab3 = st.tabs(["TIENDAS SEGUN ECOSCORE", "COMPARACION PRODUCTOS", "LOCALIZADOR DE TIENDAS"])
-
-    tab1.write("REVISION ECOSCORE")
+    st.title("PROYECTO 1: ESTUDIO DE PRODUCTOS DE ALIMENTACION")
+    st.markdown(
+        '<div style="text-align: justify;">Cuando nos planteamos este proyecto, al ver que contaban con más de 3 millones de productos, decidimos que había que acotar la selección de datos (además el notebook decía basta 💀). Finalmente cogimos 50.000 datos</p></div>',
+        unsafe_allow_html=True)
+    st.markdown(
+        '<div style="text-align: justify;">Donde utilizamos más tiempo en este caso fue en el Procesamiento de los Datos. Datos en forma de diccionarios, desagrupar columnas (de 50.000 pasamos a 5.433.663), hacer limpieza de datos...</p><p> Open Food Facts es una asociación sin ánimo de lucro formada por voluntarios, por lo que cada aportacion a la base de datos no tiene un patron establecido.</p></div>',
+        unsafe_allow_html=True)
+    st.markdown(
+        '<div style="text-align: justify;">Una vez que realizado el preprocesamiento, pudimos comenzar a realizar las visualizaciones</p></div>',
+        unsafe_allow_html=True)
 
     df = pd.read_pickle('proyecto1/datos_spain.pkl')
 
-    tab1.header('Tiendas')
+
+    tab1, tab2, tab3 = st.tabs(["TIENDAS SEGUN ECOSCORE", "COMPARACION PRODUCTOS", "LOCALIZADOR DE TIENDAS"])
+
+    # TIENDAS SEGUN ECOSCORE
+    tab1.header("REVISION ECOSCORE")
+
+    tab1.markdown('<div style="text-align: justify;">Gráfico con la media de datos de Ecoscore por tiendas referentes en España </p><p> Ecoscore analiza el impacto ambiental de las tiendas, donde  a mayor puntuación, menor impacto ambiental.</p></div>',
+        unsafe_allow_html=True)
+
     tiendas = df[df['Tiendas'] != ""]['Tiendas'].dropna().value_counts().head(20).index.to_list()
 
     tiendas_selecc = tab1.multiselect(label = "**Elige las tiendas a comparar**",
@@ -26,7 +39,7 @@ def proyecto():
     df_media = df_media.sort_values(by='Puntuación Ecoscore', ascending=False)
 
     # gráficamos un tipo barplot
-    fig = px.bar(df_media, x='Tiendas', y='Puntuación Ecoscore')
+    fig = px.bar(df_media, x='Tiendas', y='Puntuación Ecoscore',color_discrete_sequence=['orange'])
 
     fig.update_layout(
         title="Media de Puntuación Ecoscore en Tiendas",
