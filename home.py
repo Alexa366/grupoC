@@ -7,7 +7,7 @@ def home():
 
     col1.markdown("## Inicios")
 
-    col1.markdown('<div style="text-align: justify;">Empezamos este BOOTCAMP el lejano 11 de Septiembre (vaya fecha) y ahi comenzamos a aprender términos como iterar, listas, diccionarios. Conocimos a Bárbara, a Fede, nos nombraron a un tal Dani como tutor y conocimos a los compañeros con los que ibamos a sufrir los siguientes meses</p></div>', unsafe_allow_html=True)
+    col1.markdown('<div style="text-align: justify;">Empezamos este BOOTCAMP el lejano 11 de Septiembre (vaya fecha) y ahi comenzamos a aprender términos como iterar, listas, diccionarios. Conocimos a Bárbara, a Fede, nos nombraron a Dani como tutor y conocimos a los compañeros con los que ibamos a <s>sufrir</s> disfrutar los siguientes meses</p></div>', unsafe_allow_html=True)
     col2.video("https://youtu.be/gscbkGS6Bh8")
     add_vertical_space(1)
 
