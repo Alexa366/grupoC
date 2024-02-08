@@ -64,6 +64,10 @@ def proyecto():
 
     tab2.plotly_chart(figure_or_data=fig)
 
+    tab3.subheader("RELACION NUMERO DE ADITIVOS CON EL GRADO DE NUTRICION")
+    tab3.markdown(
+        '<div style="text-align: justify;">Queremos ver cómo están relacionados los campos grado de nutrición y los aditivos. Para ello creamos un scatterplot.</p></div>',
+        unsafe_allow_html=True)
     # Creamos una variable para mapear el campo Nutriscore y poder tratarlo.
     mapa_nutriscore = {"a": 5, "b": 4, "c": 3, "d": 2, "e": 1}
     df_filtrado_tiendas["Nutriscore_nro"] = df_filtrado_tiendas["Nutriscore"].map(mapa_nutriscore)
@@ -96,6 +100,10 @@ def proyecto():
     fig.update_layout(title_text="Gráfico de Dispersión entre Nutriscore y media aditivos")
 
     tab3.plotly_chart(figure_or_data=fig)
+
+    tab3.markdown(
+        '<div style="text-align: justify;">Podemos comprobar que la mayoria de las categorías se mueven en un grado de nutrición de entre 2 y 3.5 con una media de aditivos de hasta 5, los alimentos con más nutrición por encima de 4 no superan los 4 aditivos de media..</p></div>',
+        unsafe_allow_html=True)
 
 
     with tab4:
