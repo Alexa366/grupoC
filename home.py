@@ -17,9 +17,13 @@ def home():
     st.page_link("https://es.openfoodfacts.org", label="Open Food facts", icon="🥕")
     add_vertical_space(2)
     st.markdown(
-        '<div style="text-align: justify;">Las dificultades en este primer proyecto fueron las dudas de si nos daba tiempo a presentar y si eramos capaces de </p></div>',
+        '<div style="text-align: justify;">Las dificultades en este caso fueron las dudas de si nos daba tiempo a realizar el proyecto en plazo y si el trabajo realizado era de la calidad esperada</p></div>',
         unsafe_allow_html=True)
-
+    add_vertical_space(1)
+    st.markdown("## Segundo Proyecto")
+    st.markdown(
+        '<div style="text-align: justify;">En el momento de comenzar el Segundo Proyecto, nos encontrábamos en el momento en que Machine Learning era nuestro nuevo mantra y las Redes Neuronales estaban más activas en el ordenador que en nuestros cerebros.</p></div>',
+        unsafe_allow_html=True)
 
 if __name__ == "__main__":
     home()
