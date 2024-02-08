@@ -27,7 +27,7 @@ def home():
         '<div style="text-align: justify;">En el momento de comenzar el Segundo Proyecto, nos encontrábamos en el momento en que Machine Learning era nuestro nuevo mantra y las Redes Neuronales estaban más activas en el ordenador que en nuestros cerebros.</p></div>',
         unsafe_allow_html=True)
     st.markdown(
-        '<div style="text-align: justify;">En esta ocasión, nos decidimos a usar un dataset de Setas:mushroom:!! (el hecho de que alguno de los componentes estuviera viendo Last of Us en esa época tuvo un poco de peso en la decisión:smile:).</p></div>',
+        '<div style="text-align: justify;">En esta ocasión, nos decidimos a usar un dataset de Setas 🍄!! (el hecho de que alguno de los componentes estuviera viendo Last of Us en esa época tuvo un poco de peso en la decisión 😅).</p></div>',
         unsafe_allow_html=True)
 
 if __name__ == "__main__":
