@@ -19,10 +19,10 @@ def proyecto():
     df = pd.read_pickle('proyecto1/datos_spain.pkl')
 
 
-    tab1, tab2, tab3 = st.tabs(["TIENDAS SEGUN ECOSCORE", "COMPARACION PRODUCTOS", "LOCALIZADOR DE TIENDAS"])
+    tab1, tab2, tab3, tab4 = st.tabs(["TIENDAS SEGUN ECOSCORE", "COMPARACION PRODUCTOS", "Nº DE ADITIVOS Y GRADO DE NUTRICION", "PRUEBAS"])
 
     # TIENDAS SEGUN ECOSCORE
-    tab1.header("REVISION ECOSCORE")
+    tab1.subheader("REVISION ECOSCORE")
 
     tab1.markdown('<div style="text-align: justify;">Gráfico con la media de datos de Ecoscore por tiendas referentes en España </p><p> Ecoscore analiza el impacto ambiental de las tiendas, donde  a mayor puntuación, menor impacto ambiental.</p></div>',
         unsafe_allow_html=True)
@@ -64,8 +64,43 @@ def proyecto():
 
     tab2.plotly_chart(figure_or_data=fig)
 
+    # Creamos una variable para mapear el campo Nutriscore y poder tratarlo.
+    mapa_nutriscore = {"a": 5, "b": 4, "c": 3, "d": 2, "e": 1}
+    df_filtrado_tiendas["Nutriscore_nro"] = df_filtrado_tiendas["Nutriscore"].map(mapa_nutriscore)
+    # Convertimos la colunma Nutriscor_nro a valor numerico, para que no de error al graficar
+    df_filtrado_tiendas['Nutriscore_nro'] = pd.to_numeric(df_filtrado_tiendas['Nutriscore_nro'], errors='coerce')
 
-    tab3.write("BUSCADOR DE TIENDAS")
+    # Calcula la media del número de aditivos y el grado de nutrición por Grupo de alimentos en las tiendas seleccionadas anteriormente
+    nro_aditivos_media = df_filtrado_tiendas.groupby('Grupo alimentos')['Nro aditivos'].mean()
+    nro_grado_nutricion = df_filtrado_tiendas.groupby('Grupo alimentos')['Nutriscore_nro'].mean()
+
+    fig = px.scatter(
+        data_frame=df_filtrado_tiendas.iloc[:1000, :],
+        y=nro_aditivos_media,
+        x=nro_grado_nutricion,
+        color=nro_grado_nutricion.index,
+        hover_name=nro_aditivos_media.index,
+        height=None,
+        opacity=0.5
+    )
+
+    # Títulos
+    fig.update_xaxes(title_text='Grado de Nutrición')
+    fig.update_yaxes(title_text='Media de Aditivos')
+
+    # Leyenda
+    fig.update_traces(marker=dict(size=5), selector=dict(mode='markers'), showlegend=True)
+
+    # Título principal
+
+    fig.update_layout(title_text="Gráfico de Dispersión entre Nutriscore y media aditivos")
+
+    tab3.plotly_chart(figure_or_data=fig)
+
+
+    with tab4:
+        tab4.write("BUSCADOR DE TIENDAS")
+        #buscador()
 
 
 
