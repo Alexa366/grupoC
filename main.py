@@ -25,16 +25,13 @@ def main():
         home()
         pass
 
-    if seleccion == "BOOTCAMP DSB05RT":
-        inicio()
-
     if seleccion == "PROYECTO 1 - ALIMENTOS":
         proyecto()
 
     if seleccion == "PROYECTO 2 - SETAS":
         # Make
         versiones = ("Spanish Version", "English Version")
-        version = st.radio(label="VERSION", options=versiones)
+        version = st.radio(label="VERSION", options=versiones, horizontal=True)
         if version == "Spanish Version":
             proyecto2es()
         elif version == "English Version":

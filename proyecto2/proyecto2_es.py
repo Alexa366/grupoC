@@ -6,8 +6,21 @@ from proyecto2.ml import modelo_filtrado
 
 
 def proyecto2es():
+    st.title("PROYECTO 2: CREACION DE UN MODELO DE MACHINE LEARNING PARA DETECTAR SI UNA SETA ES VENENOSA O COMESTIBLE")
+    st.markdown(
+        '<div style="text-align: justify;">Basandonos en el DataFrame de UCI Machine Learning Repository, empezamos a realizar nuestro segundo proyecto</p></div>',
+        unsafe_allow_html=True)
+    st.markdown(
+        '<div style="text-align: justify;">Tras un estudio de cualés eran las partes y características que componen una seta, y la información encontrada en el Dataset, realizamos el EDA y el preprocesado de los datos. Dividimos el análisis de los datos por las partes que componen la seta, para una mejor explicación de los mismos.</p></div>',
+        unsafe_allow_html=True)
+    st.markdown(
+        '<div style="text-align: justify;">En el EDA nos dimos cuenta que algunas características tenían un gran peso a la hora de predecir el resultado, que se refrendó al probar los diferenctes modelos de clasificación de Machine Learning, donde la mayoría de los modelo daban un 100% de Accuracy, Precision y Recall</p></div>',
+        unsafe_allow_html=True)
+    st.markdown(
+        '<div style="text-align: justify;">Eso nos hice revisar el proyecto para darle un poco más de valor al mismo, y decidimos comprobar para cada tipo de característica cual sería la precisión del mismo. Para realizar la predicción nos quedamos con el modelo de RandomForest. Os animamos a que elijáis entre las diferentes opciones para la comprobacion de si una 🍄 es comestible o venenosa</p></div>',
+        unsafe_allow_html=True)
 
-    st.title("MODELO DE ML: SETAS, ¿COMESTIBLES O VENENOSAS?")
+    st.subheader("MODELO DE ML: SETAS, ¿COMESTIBLES O VENENOSAS?")
 
     df = pd.read_csv("proyecto2/setas.csv").drop('class', axis=1)
     df2 = pd.read_csv("proyecto2/setas.csv")
