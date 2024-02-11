@@ -11,7 +11,7 @@ def main():
         page_title="PROYECTOS REALIZADOS EN DSB05RT",
         page_icon=":abacus", )
 
-    st.title("**ESTOS** SON LOS PROYECTOS REALIZADOS CON EN EL BOOTCAMP DE HACKABOSS")
+    st.title("ESTOS SON LOS PROYECTOS REALIZADOS CON EN EL BOOTCAMP DE HACKABOSS")
     st.subheader(body="Liuva :female_superhero:, Alex :female_superhero: y David :male_zombie: presentan los proyectos realizados durante este Bootcamp.")
 
     seleccion = option_menu(
