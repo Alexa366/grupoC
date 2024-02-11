@@ -6,8 +6,21 @@ from proyecto2.ml_en import modelo_filtrado_en
 
 
 def proyecto2en():
+    st.title("PROJECT 2: CREATION OF A ML'S MODEL TO DETECT IF A MUSHROOM IS POISONOUS OR EDIBLE")
+    st.markdown(
+        '<div style="text-align: justify;">Based on the UCI Machine Learning Repository DataFrame, we began to carry out our second project</p></div>',
+        unsafe_allow_html=True)
+    st.markdown(
+        '<div style="text-align: justify;">After a study of the parts and characteristics that make up a mushroom, and the information found in the Dataset, we carried out the EDA and preprocessing of the data. We divide the data analysis by the parts that make up the mushroom, for a better explanation of them.</p></div>',
+        unsafe_allow_html=True)
+    st.markdown(
+        '<div style="text-align: justify;">At the EDA we realized that some characteristics had a great weight when predicting the result, which was confirmed when testing the different Machine Learning classification models, where most of the models gave 100% for both Accuracy, Precision and Recall</p></div>',
+        unsafe_allow_html=True)
+    st.markdown(
+        '<div style="text-align: justify;">That made us review the project to give a little more value to it, and we decided to check for each type of characteristic what its precision would be. To make the prediction we use the RandomForest model. We encourage you to choose between the different options to check whether a 🍄 is edible or poisonous</p></div>',
+        unsafe_allow_html=True)
 
-    st.title("ML'S MODEL: MUSHROOMS, ¿EDIBLES O POISONOUS?")
+    st.subheader("ML'S MODEL: MUSHROOMS, ¿EDIBLES O POISONOUS?")
 
     df = pd.read_csv("proyecto2/mushrooms_eda.csv").drop('CLASS', axis=1)
     df2 = pd.read_csv("proyecto2/mushrooms_eda.csv")

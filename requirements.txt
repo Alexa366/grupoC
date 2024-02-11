@@ -1,6 +1,8 @@
 numpy
 pandas
 streamlit
+time
+pickle
 seaborn
 requests
 matplotlib
@@ -8,11 +10,9 @@ pillow
 plotly
 scikit-learn
 streamlit_option_menu
-opencv-python
-deepface
+opencv-python-headless
 pprintpp
 streamlit-folium
 folium
-streamlit_lottie
 streamlit_extras
 
