@@ -2,7 +2,7 @@ numpy
 pandas
 streamlit
 time
-pickle
+pickle-mixin
 seaborn
 requests
 matplotlib
