@@ -14,5 +14,5 @@ pprintpp
 streamlit-folium
 folium
 streamlit_extras
-keras.models
+keras
 tensorflow
