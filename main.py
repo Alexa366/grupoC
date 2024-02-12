@@ -3,6 +3,7 @@ from streamlit_option_menu import option_menu
 from proyecto1.proyecto_inicio import proyecto
 from proyecto2.proyecto2_es import proyecto2es
 from proyecto2.proyecto2_en import proyecto2en
+from proyecto3.proyecto3 import proyecto3
 from home import home
 
 
@@ -36,6 +37,9 @@ def main():
             proyecto2es()
         elif version == "English Version":
             proyecto2en()
+
+    if seleccion == "PROYECTO 3 - EMOCIONES":
+        proyecto3()
 
 
 if __name__ == "__main__":
