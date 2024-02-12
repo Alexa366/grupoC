@@ -11,7 +11,7 @@ def proyecto3():
         unsafe_allow_html=True)
     col2.image("image.png", use_column_width="auto")
     st.markdown(
-        '<div style="text-align: justify;"></p></div>',
+        '<div style="text-align: justify;">Probando, probando</p></div>',
         unsafe_allow_html=True)
     st.markdown(
         '<div style="text-align: justify;"></p></div>',
