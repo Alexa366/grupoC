@@ -3,6 +3,7 @@ import numpy as np
 import cv2
 from keras.models import load_model
 def emociones():
+
     modelo = load_model('proyecto3.keras')
     tamaño=(64, 64)
     emociones= ['Feliz', 'Neutro', 'Triste']
@@ -25,5 +26,6 @@ def emociones():
         col2.metric(emociones[posicion1].upper(), f"{round(maximo*100,2)}%")
         col2.metric(emociones[posicion2].upper(), f"{round(medio*100,2)}%")
         col2.metric(emociones[posicion3].upper(), f"{round(minimo*100,2)}%")
+
 if __name__ == "__main__":
     emociones()
