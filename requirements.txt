@@ -1,7 +1,6 @@
 numpy
 pandas
 streamlit
-time
 pickle-mixin
 seaborn
 requests
