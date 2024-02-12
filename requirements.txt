@@ -2,7 +2,6 @@ numpy
 pandas
 streamlit
 time
-pickle
 seaborn
 requests
 matplotlib
