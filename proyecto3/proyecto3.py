@@ -1,4 +1,5 @@
 import streamlit as st
+from proyecto3.emociones import emociones
 
 def proyecto3():
     st.title("PROYECTO 3: RED NEURONAL DE SENTIMIENTOS")
@@ -9,12 +10,16 @@ def proyecto3():
     col1.markdown(
         '<div style="text-align: justify;">Empezamos nuestro modelo utilizando varios datasets de imagénes de Kaggle, pero los primeros pasos eran dificiles. Tanto las graficas de accuracy como de pérdida nos daban mucho overfitting al principio.</p></div>',
         unsafe_allow_html=True)
-    col2.markdown(
+    col1.markdown(
         '<div style="text-align: justify;">Finalmente cogimos varios datasets de imagénes, llegando a trabajar con 27.441 imagénes</p></div>',
         unsafe_allow_html=True)
-    st.markdown(
+    col2.markdown(
         '<div style="text-align: justify;">Por otro lado, vimos la posibilidad de utilizar la función de Streamlit de camara, para crear un acceso facial a nuestra app</p></div>',
         unsafe_allow_html=True)
+
+    tab1, tab2, = st.tabs("FOTO EMOCIONES", "VIDEO EMOCIONES")
+    with tab1:
+        emociones()
 
 
 if __name__ == "__main__":
