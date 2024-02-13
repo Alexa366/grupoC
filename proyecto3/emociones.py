@@ -8,7 +8,7 @@ def emociones():
     tamaño = (64, 64)
     emociones = ['Feliz', 'Neutro', 'Triste']
     clase_nombre_dict = {0: 'Feliz', 1: 'Neutro', 2: 'Triste'}
-    prueba = st.camera_input("Take a picture", key="FirstCamara", help="Saca una foto de tu cara para poder acceder")
+    prueba = st.camera_input("Sacate una foto", key="FirstCamara")
     if prueba:
         bytes_data = prueba.getvalue()
         image2 = cv2.imdecode(np.frombuffer(bytes_data, np.uint8), cv2.IMREAD_GRAYSCALE)
