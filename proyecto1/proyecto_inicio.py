@@ -2,7 +2,6 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import plotly.express as px
-from proyecto1.buscador import buscador
 
 def proyecto():
 
@@ -111,10 +110,28 @@ def proyecto():
 
 
     with tab4:
-        tab4.write("BUSCADOR DE TIENDAS")
-        #buscador()
+        tab4.write("MARCAS BLANCAS vs MARCAS TRADICIONALES")
+        tab4.markdown(
+            '<div style="text-align: justify;">Queremos ver cual eran la diferencia entre los productos de marca blanca y los productos originales, y así comprobar que cual sería la mejor opción en términos de valores energéticos</p></div>',
+            unsafe_allow_html=True)
+        lista_categorias = df['Categorias'].value_counts().head(10).reset_index()['Categorias'].tolist()
 
+        categorias = tab4.selectbox(label="Categorias",
+                                    options=lista_categorias)
+        col1, col2 = st.columns(2)
+        marcas_blancas = ["Hacendado", "Dia", "Carrefour", "Eroski", "Auchan", "El Corte Ingles"]
+        marca_blanca = col2.selectbox(label="Marca Blanca", options=marcas_blancas)
 
+        lista_marcas = df[(df['Categorias'] == categorias)&(~df['Marcas'].isin(marcas_blancas))]['Marcas'].value_counts().head(5).index.tolist()
+
+        marca = col1.selectbox(label="Marca", options=lista_marcas)
+        datos2 = tab4.radio("Elige", ["Grasas", "kcal", "Grasas saturadas", "Azucares"], horizontal=True)
+
+        df_grafico = df[(df['Marcas'].isin([marca_blanca, marca])) & (df['Categorias'] == categorias)][
+            ['Carbohidratos', 'kcal', 'Grasas', 'Azucares', 'Marcas', 'Categorias']].dropna()
+        fig = sns.pairplot(df_grafico, height=2, hue='Marcas', y_vars=datos2)
+        plt.suptitle(f'Comparación de {marca_blanca} y {marca} en la categoría {categorias}', y=1.02)
+        tab4.pyplot(fig.fig)
 
 if __name__ == "__main__":
     proyecto()
