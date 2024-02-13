@@ -4,7 +4,7 @@ import numpy as np
 import cv2
 from keras.models import load_model
 def emociones():
-    modelo = load_model('proyecto3.keras')
+    modelo = load_model('proyecto3/proyecto3.keras')
     tamaño = (64, 64)
     emociones = ['Feliz', 'Neutro', 'Triste']
     clase_nombre_dict = {0: 'Feliz', 1: 'Neutro', 2: 'Triste'}
