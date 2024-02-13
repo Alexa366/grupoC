@@ -19,7 +19,7 @@ def proyecto():
     df = pd.read_pickle('proyecto1/datos_spain.pkl')
 
 
-    tab1, tab2, tab3, tab4 = st.tabs(["TIENDAS SEGUN ECOSCORE", "COMPARACION PRODUCTOS", "Nº DE ADITIVOS Y GRADO DE NUTRICION", "PRUEBAS"])
+    tab1, tab2, tab3, tab4 = st.tabs(["TIENDAS SEGUN ECOSCORE", "COMPARACION PRODUCTOS", "Nº DE ADITIVOS Y GRADO DE NUTRICION", "MARCAS BLANCAS"])
 
     # TIENDAS SEGUN ECOSCORE
     tab1.subheader("REVISION ECOSCORE")
