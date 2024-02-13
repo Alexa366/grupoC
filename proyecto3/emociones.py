@@ -9,7 +9,6 @@ def emociones():
     opciones = ("Subir Foto", "Sacar Foto")
     version = st.radio(label="ELIGE UNA OPCION", options=opciones, horizontal=True)
     if version == "Subir Foto":
-        st.button("Subir Foto", type="secondary", use_container_width=True)
         subida = st.file_uploader("FOTO", type=['png', 'jpg'])
         detectar_emociones(subida)
     if version == 'Sacar Foto':
