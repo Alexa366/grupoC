@@ -18,6 +18,9 @@ def proyecto3():
     with tab1:
         emociones()
 
+    with tab2:
+        st.write("PENDIENTE")
+
 
 if __name__ == "__main__":
         proyecto3()
