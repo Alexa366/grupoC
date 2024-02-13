@@ -14,7 +14,7 @@ def proyecto3():
         unsafe_allow_html=True)
     st.page_link("https://camaraprueba-nyki6ixzgfbvcjgru7kjzf.streamlit.app/", label="FaceID", icon="🔒")
 
-    tab1, tab2, = st.tabs("FOTO EMOCIONES", "VIDEO EMOCIONES")
+    tab1, tab2 = st.tabs("FOTO EMOCIONES", "VIDEO EMOCIONES")
     with tab1:
         emociones()
 
