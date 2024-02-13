@@ -131,7 +131,6 @@ def proyecto():
         df_grafico = df[(df['Marcas'].isin([marca_blanca, marca])) & (df['Categorias'] == categorias)][
             ['Carbohidratos', 'kcal', 'Grasas', 'Azucares', 'Marcas', 'Categorias']].dropna()
         fig = sns.pairplot(df_grafico, height=2, hue='Marcas', y_vars=datos2)
-        plt.suptitle(f'Comparación de {marca_blanca} y {marca} en la categoría {categorias}', y=1.02)
         tab4.pyplot(fig.fig)
 
 if __name__ == "__main__":
