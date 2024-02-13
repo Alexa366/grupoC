@@ -8,6 +8,7 @@ def emociones():
     modelo = load_model('proyecto3/proyecto3.keras')
     tamaño=(64, 64)
     emociones= ['Feliz', 'Neutro', 'Triste']
+    clase_nombre_dict = {0: 'Feliz', 1: 'Neutro', 2: 'Triste'}
     prueba = st.camera_input("Take a picture", key="FirstCamara",help="Saca una foto de tu cara para poder acceder")
     if prueba:
         bytes_data = prueba.getvalue()
