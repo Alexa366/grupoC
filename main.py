@@ -18,7 +18,7 @@ def main():
     seleccion = option_menu(
         menu_title=None,
         options=["HOME", "PROYECTO 1 - ALIMENTOS", "PROYECTO 2 - SETAS", "PROYECTO 3 - EMOCIONES"],
-        icons=["house","1-square", "2-square-fill", "3-square"],
+        icons=["house-fill","1-square", "2-square-fill", "3-square"],
         default_index=0,
         orientation="horizontal", )
 
