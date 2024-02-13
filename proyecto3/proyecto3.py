@@ -12,7 +12,7 @@ def proyecto3():
     st.markdown(
         '<div style="text-align: justify;">Por otro lado, vimos la posibilidad de utilizar la función de Streamlit de camara, para crear un acceso facial a nuestra app. Buscamos las fotos de los compañeros y profesores para realizar otro modelo en el que pudieran acceder al proyecto sacando una foto</p></div>',
         unsafe_allow_html=True)
-    st.page_link("https://camaraprueba-nyki6ixzgfbvcjgru7kjzf.streamlit.app/", label="FaceID", icon=":lock:")
+    st.page_link("https://camaraprueba-nyki6ixzgfbvcjgru7kjzf.streamlit.app/", label="FaceID", icon="🔒")
 
     tab1, tab2, = st.tabs("FOTO EMOCIONES", "VIDEO EMOCIONES")
     with tab1:
