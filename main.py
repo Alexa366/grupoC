@@ -30,7 +30,6 @@ def main():
         proyecto()
 
     if seleccion == "PROYECTO 2 - SETAS":
-        # Make
         versiones = ("Spanish Version", "English Version")
         version = st.radio(label="VERSION", options=versiones, horizontal=True)
         if version == "Spanish Version":
