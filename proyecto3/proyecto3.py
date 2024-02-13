@@ -9,6 +9,7 @@ def proyecto3():
     st.markdown(
         '<div style="text-align: justify;">Empezamos nuestro modelo utilizando varios datasets de imagénes de Kaggle, pero los primeros pasos eran dificiles. Tanto las graficas de accuracy como de pérdida nos daban mucho overfitting al principio. </p><p> Finalmente cogimos varios datasets de imagénes, llegando a trabajar con 27.441 imagénes.</p></div>',
         unsafe_allow_html=True)
+
     st.markdown(
         '<div style="text-align: justify;">Por otro lado, vimos la posibilidad de utilizar la función de Streamlit de camara, para crear un acceso facial a nuestra app. Buscamos las fotos de los compañeros y profesores para realizar otro modelo en el que pudieran acceder al proyecto sacando una foto</p></div>',
         unsafe_allow_html=True)
