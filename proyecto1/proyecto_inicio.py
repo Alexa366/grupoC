@@ -125,7 +125,7 @@ def proyecto():
         lista_marcas = df[(df['Categorias'] == categorias)&(~df['Marcas'].isin(marcas_blancas))]['Marcas'].value_counts().head(5).index.tolist()
 
         marca = col1.selectbox(label="Marca", options=lista_marcas)
-        datos2 = tab4.radio("Elige", ["Grasas", "kcal", "Grasas saturadas", "Azucares"], horizontal=True)
+        datos2 = tab4.radio("Elige", ["Grasas", "kcal", "Grasas saturadas", "Azucares"], horizontal=True, key="Segunda")
 
         df_grafico = df[(df['Marcas'].isin([marca_blanca, marca])) & (df['Categorias'] == categorias)][
             ['Carbohidratos', 'kcal', 'Grasas', 'Azucares', 'Marcas', 'Categorias']].dropna()
