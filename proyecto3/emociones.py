@@ -15,17 +15,18 @@ def emociones():
         image_np = np.array(image2_resize)
         img_array = np.expand_dims(image_np, axis=0)
         prediction = modelo.predict(img_array)
-        maximo = prediction.max()
-        medio = prediction[0][1]
-        minimo = prediction.min()
+        df = pd.DataFrame(prediction[0])
+        df = df.rename(index=clase_nombre_dict).sort_values(by=0, ascending=False)
+        maximo = df[0][0]
+        medio = df[0][1]
+        minimo = df[0][2]
         posicion1 = np.where(prediction == maximo)[1][0]
         posicion2 = np.where(prediction == medio)[1][0]
         posicion3 = np.where(prediction == minimo)[1][0]
-        col1, col2 =st.columns(2)
+        col1, col2 = st.columns(2)
         col1.image(prueba)
-        col2.metric(emociones[posicion1].upper(), f"{round(maximo*100,2)}%")
-        col2.metric(emociones[posicion2].upper(), f"{round(medio*100,2)}%")
-        col2.metric(emociones[posicion3].upper(), f"{round(minimo*100,2)}%")
-
+        col2.metric(emociones[posicion1].upper(), f"{round(maximo * 100, 2)}%")
+        col2.metric(emociones[posicion2].upper(), f"{round(medio * 100, 2)}%")
+        col2.metric(emociones[posicion3].upper(), f"{round(minimo * 100, 2)}%")
 if __name__ == "__main__":
     emociones()
