@@ -14,7 +14,7 @@ def proyecto():
         '<div style="text-align: justify;">Donde utilizamos más tiempo en este caso fue en el Procesamiento de los Datos. Datos en forma de diccionarios, desagrupar columnas (de 50.000 pasamos a 5.433.663), hacer limpieza de datos...</p><p> Open Food Facts es una asociación sin ánimo de lucro formada por voluntarios, por lo que cada aportacion a la base de datos no tiene un patron establecido.</p></div>',
         unsafe_allow_html=True)
     st.markdown(
-        '<div style="text-align: justify;">Una vez que realizado el preprocesamiento, pudimos comenzar a realizar las visualizaciones</p></div>',
+        '<div style="text-align: justify;">Una vez realizado el preprocesamiento, pudimos comenzar a realizar las visualizaciones</p></div>',
         unsafe_allow_html=True)
 
     df = pd.read_pickle('proyecto1/datos_spain.pkl')
